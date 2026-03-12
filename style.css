@@ -1,0 +1,116 @@
+/* Additional custom styles beyond Tailwind */
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e3a5f;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1473e6;
+}
+
+/* Mobile touch improvements */
+@media (max-width: 768px) {
+    .glass-card {
+        backdrop-filter: blur(5px);
+    }
+    
+    /* Prevent horizontal scroll */
+    body {
+        overflow-x: hidden;
+    }
+    
+    /* Improve tap targets */
+    a, button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
+/* Selection styling */
+::selection {
+    background: rgba(59, 130, 246, 0.3);
+    color: white;
+}
+
+/* Smooth transitions for all interactive elements */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Ensure images don't overflow */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Focus visible for accessibility */
+:focus-visible {
+    outline: 2px solid rgba(59, 130, 246, 0.8);
+    outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-section {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    .floating {
+        animation: none;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Glass card enhancement for Firefox */
+@supports not (backdrop-filter: blur(10px)) {
+    .glass-card {
+        background: rgba(255, 255, 255, 0.08);
+    }
+    
+    .nav-glass {
+        background: rgba(10, 10, 15, 0.95);
+    }
+}
+
+/* Loading state for form submission */
+button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* Ensure proper z-index stacking */
+nav {
+    z-index: 50;
+}
+
+/* Custom text gradient animation */
+@keyframes gradient-shift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.animated-gradient {
+    background-size: 200% 200%;
+    animation: gradient-shift 8s ease infinite;
+}
