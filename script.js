@@ -2,7 +2,7 @@
 // Scroll-triggered fade-in animations
 // ============================================
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
+    entries.forEach((entry) => {
         if (entry.isIntersecting) {
             // Staggered delay for sibling elements
             const siblings = entry.target.parentElement.querySelectorAll('.fade-in-section');
@@ -22,9 +22,76 @@ const observer = new IntersectionObserver((entries) => {
     threshold: 0.1
 });
 
+// ============================================
+// Stat counter animation
+// ============================================
+function animateCounter(el) {
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const duration = 1600;
+    const startTime = performance.now();
+
+    function easeOutQuart(t) {
+        return 1 - Math.pow(1 - t, 4);
+    }
+
+    function tick(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = easeOutQuart(progress) * target;
+
+        el.textContent = value.toFixed(decimals) + suffix;
+
+        if (progress < 1) {
+            requestAnimationFrame(tick);
+        } else {
+            el.textContent = target.toFixed(decimals) + suffix;
+        }
+    }
+
+    requestAnimationFrame(tick);
+}
+
+const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.stat-count').forEach(animateCounter);
+            statsObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+// ============================================
+// Process timeline draw
+// ============================================
+const processObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            // Small delay so the step's fade-in lands first
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, 150);
+            processObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.3
+});
+
+// ============================================
+// DOMContentLoaded
+// ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Observe all fade-in elements
+    // Fade-in observer
     document.querySelectorAll('.fade-in-section').forEach(el => observer.observe(el));
+
+    // Stats counter observer
+    const statsBar = document.querySelector('.stats-bar');
+    if (statsBar) statsObserver.observe(statsBar);
+
+    // Timeline draw observer
+    document.querySelectorAll('.process-step').forEach(el => processObserver.observe(el));
 
     // ---- Navbar scroll effect ----
     const navbar = document.getElementById('navbar');
@@ -49,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const isOpen = !mobileMenu.classList.contains('hidden');
             mobileMenu.classList.toggle('hidden');
 
-            // Swap icon
             const icon = mobileMenuBtn.querySelector('[data-lucide]');
             if (icon) {
                 icon.setAttribute('data-lucide', isOpen ? 'menu' : 'x');
@@ -77,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = document.querySelector(href);
             if (target) {
-                const offset = 80; // navbar height
+                const offset = 80;
                 const top = target.getBoundingClientRect().top + window.scrollY - offset;
                 window.scrollTo({ top, behavior: 'smooth' });
             }
@@ -95,7 +161,6 @@ function handleFormSubmit(form) {
     btn.disabled = true;
     btn.textContent = 'Sending...';
 
-    // Simulate async submission
     setTimeout(() => {
         btn.textContent = 'Sent!';
         btn.style.background = 'linear-gradient(135deg, #059669, #10b981)';
