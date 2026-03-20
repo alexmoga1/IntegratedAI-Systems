@@ -8,255 +8,189 @@
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary-glow: rgba(20, 115, 230, 0.4);
-            --secondary-glow: rgba(59, 130, 246, 0.2);
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0a0a0f;
-            overflow-x: hidden;
-        }
-        
-        h1, h2, h3, h4 {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1473e6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .glow-border {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2), 
-                        inset 0 0 20px rgba(59, 130, 246, 0.1);
-        }
-        
-        .glass-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .glass-card:hover {
-            border-color: rgba(59, 130, 246, 0.5);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
-        }
-        
-        .fade-in-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .fade-in-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .hero-gradient {
-            background: radial-gradient(ellipse at top, #0c4a6e 0%, #0a0a0f 50%, #000000 100%);
-        }
-        
-        .grid-pattern {
-            background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
-            background-size: 40px 40px;
-        }
-        
-        .compliance-badge {
-            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.05) 100%);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-        
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .nav-glass {
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-        
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: rgba(59, 130, 246, 0.8);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="text-gray-300 antialiased selection:bg-indigo-500 selection:text-white">
+<body class="text-gray-400 antialiased">
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 nav-glass transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center space-x-2">
-                    <i data-lucide="shield-check" class="w-8 h-8 text-blue-400"></i>
-                    <span class="text-2xl font-bold text-white tracking-tight">Integrated AI Systems</span>
+    <nav class="fixed w-full z-50 transition-all duration-500" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-18 py-4">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                        <i data-lucide="shield-check" class="w-4.5 h-4.5 text-white" style="width:18px;height:18px;"></i>
+                    </div>
+                    <span class="text-lg font-semibold text-white tracking-tight">Integrated AI Systems</span>
                 </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#solutions" class="text-sm font-medium hover:text-white transition-colors">Solutions</a>
-                    <a href="#compliance" class="text-sm font-medium hover:text-white transition-colors">Compliance</a>
-                    <a href="#process" class="text-sm font-medium hover:text-white transition-colors">Process</a>
-                    <a href="#contact" class="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-sm font-medium transition-all hover:shadow-lg hover:shadow-blue-500/25">
+
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#solutions" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Solutions</a>
+                    <a href="#compliance" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Compliance</a>
+                    <a href="#process" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Process</a>
+                    <a href="#contact" class="nav-cta px-5 py-2 text-sm font-medium text-white rounded-full transition-all duration-200">
                         Get Started
                     </a>
                 </div>
-                
-                <button class="md:hidden text-white" id="mobile-menu-btn">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
+
+                <button class="md:hidden text-gray-400 hover:text-white transition-colors" id="mobile-menu-btn">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
                 </button>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-gray-900 border-t border-gray-800" id="mobile-menu">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#solutions" class="block px-3 py-2 text-base font-medium hover:bg-gray-800 rounded-md">Solutions</a>
-                <a href="#compliance" class="block px-3 py-2 text-base font-medium hover:bg-gray-800 rounded-md">Compliance</a>
-                <a href="#process" class="block px-3 py-2 text-base font-medium hover:bg-gray-800 rounded-md">Process</a>
-                <a href="#contact" class="block px-3 py-2 text-base font-medium text-indigo-400">Get Started</a>
+        <div class="hidden md:hidden mobile-menu-panel" id="mobile-menu">
+            <div class="px-6 py-4 space-y-1">
+                <a href="#solutions" class="block px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Solutions</a>
+                <a href="#compliance" class="block px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Compliance</a>
+                <a href="#process" class="block px-3 py-2.5 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-lg transition-all">Process</a>
+                <a href="#contact" class="block px-3 py-2.5 text-sm font-medium text-indigo-400 hover:text-indigo-300 transition-colors">Get Started →</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center hero-gradient grid-pattern overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/20 to-transparent"></div>
-        
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-            <div class="inline-flex items-center px-4 py-2 rounded-full glass-card mb-8 fade-in-section">
-                <span class="flex h-2 w-2 rounded-full bg-green-400 mr-2 animate-pulse"></span>
-                <span class="text-sm font-medium text-indigo-200">SOC 2 Type II Compliant Infrastructure</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight fade-in-section">
-                <span class="gradient-text">Your company's data</span><br>
-                <span class="text-white">Reimagined</span>
-            </h1>
-            
-            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed fade-in-section">
-                Private AI integration for data-heavy enterprises. Secure, compliant knowledge engines.
-            
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center w-full px-4 sm:px-0 fade-in-section">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 text-center">
-                    Schedule Demo
-                </a>
-                <a href="#solutions" class="w-full sm:w-auto px-8 py-4 glass-card text-white rounded-full font-semibold hover:bg-white/5 transition-all flex items-center justify-center gap-2 group">
-                    Explore Solutions
-                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                </a>
-            </div>
-            
-            <!-- Stats -->
-            <div class="mt-16 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto px-4 md:px-0 fade-in-section">
-                <div class="glass-card rounded-2xl p-4 md:p-6 border border-blue-500/20">
-                    <div class="text-2xl md:text-3xl font-bold text-white mb-1">99.9%</div>
-                    <div class="text-xs md:text-sm text-gray-400">Uptime SLA</div>
-                </div>
-                <div class="glass-card rounded-2xl p-4 md:p-6 border border-blue-500/20">
-                    <div class="text-2xl md:text-3xl font-bold text-white mb-1">Zero</div>
-                    <div class="text-xs md:text-sm text-gray-400">Data Leakage</div>
-                </div>
-                <div class="glass-card rounded-2xl p-4 md:p-6 border border-blue-500/20">
-                    <div class="text-2xl md:text-3xl font-bold text-white mb-1">50+</div>
-                    <div class="text-xs md:text-sm text-gray-400">Enterprise Clients</div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Decorative Elements - Sleek horizontal glow -->
-        <div class="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-b from-blue-900/20 via-blue-800/10 to-transparent pointer-events-none"></div>
-        <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
-    </section>
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg pt-20">
+        <!-- Mesh gradient orbs -->
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
 
-    
+        <!-- Noise overlay -->
+        <div class="noise-overlay"></div>
+
+        <!-- Dot grid -->
+        <div class="dot-grid"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 text-center z-10 py-20">
+
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full badge mb-10 fade-in-section">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                <span class="text-xs font-medium text-emerald-300 tracking-wide uppercase">SOC 2 Type II Compliant</span>
+            </div>
+
+            <!-- Headline -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-[1.02] tracking-tight fade-in-section">
+                <span class="text-white">Your company's data,</span><br>
+                <span class="gradient-text-hero">reimagined.</span>
+            </h1>
+
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed fade-in-section">
+                Private AI integration for data-heavy enterprises.<br class="hidden md:block">
+                Secure, compliant knowledge engines — fully on your terms.
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center items-center mb-20 fade-in-section">
+                <a href="#contact" class="btn-primary px-7 py-3.5 text-sm font-semibold text-white rounded-full transition-all">
+                    Schedule a Demo
+                </a>
+                <a href="#solutions" class="btn-ghost px-7 py-3.5 text-sm font-semibold text-gray-300 rounded-full hover:text-white transition-all flex items-center gap-2 group">
+                    Explore Solutions
+                    <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition-transform"></i>
+                </a>
+            </div>
+
+            <!-- Stats bar -->
+            <div class="stats-bar max-w-2xl mx-auto rounded-2xl px-6 py-5 fade-in-section">
+                <div class="grid grid-cols-3 divide-x divide-white/10">
+                    <div class="px-4 text-center">
+                        <div class="text-2xl font-bold text-white mb-0.5">99.9%</div>
+                        <div class="text-xs text-gray-500">Uptime SLA</div>
+                    </div>
+                    <div class="px-4 text-center">
+                        <div class="text-2xl font-bold text-white mb-0.5">Zero</div>
+                        <div class="text-xs text-gray-500">Data Leakage</div>
+                    </div>
+                    <div class="px-4 text-center">
+                        <div class="text-2xl font-bold text-white mb-0.5">50+</div>
+                        <div class="text-xs text-gray-500">Enterprise Clients</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bottom fade -->
+        <div class="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#050508] to-transparent pointer-events-none"></div>
+    </section>
 
     <!-- Solutions Section -->
     <section id="solutions" class="py-32 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mb-20 fade-in-section">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Private Knowledge Engines<br>
-                    <span class="text-blue-400">Built for Scale</span>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="max-w-xl mb-16 fade-in-section">
+                <div class="eyebrow mb-4">Solutions</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-5">
+                    Private knowledge engines<br>built for scale.
                 </h2>
-                <p class="text-xl text-gray-400 leading-relaxed">
-                    Deploy AI systems that reside entirely within your infrastructure. Your data never leaves your environment, ensuring complete sovereignty and compliance.
+                <p class="text-gray-400 leading-relaxed">
+                    Deploy AI systems that reside entirely within your infrastructure. Your data never leaves your environment.
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="grid md:grid-cols-3 gap-4">
                 <!-- Card 1 -->
-                <div class="glass-card rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300 fade-in-section">
-                    <div class="w-14 h-14 bg-blue-900/50 rounded-xl flex items-center justify-center mb-6 glow-border">
-                        <i data-lucide="database" class="w-7 h-7 text-blue-400"></i>
+                <div class="solution-card rounded-2xl p-8 fade-in-section group">
+                    <div class="card-icon mb-7 indigo-icon">
+                        <i data-lucide="database" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Internal Knowledge Base</h3>
-                    <p class="text-gray-400 leading-relaxed mb-4">
+                    <h3 class="text-lg font-semibold text-white mb-3">Internal Knowledge Base</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
                         AI that ingests your proprietary documents, emails, and databases to become your institutional memory.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0"></i>
                             Semantic search across all docs
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-indigo-400 flex-shrink-0"></i>
                             Automatic categorization
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Card 2 -->
-                <div class="glass-card rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300 fade-in-section">
-                    <div class="w-14 h-14 bg-blue-900/30 rounded-xl flex items-center justify-center mb-6 glow-border">
-                        <i data-lucide="lock" class="w-7 h-7 text-blue-400"></i>
+                <div class="solution-card rounded-2xl p-8 fade-in-section group">
+                    <div class="card-icon mb-7 violet-icon">
+                        <i data-lucide="lock" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Secure Data Processing</h3>
-                    <p class="text-gray-400 leading-relaxed mb-4">
+                    <h3 class="text-lg font-semibold text-white mb-3">Secure Data Processing</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
                         On-premise or private cloud deployment with end-to-end encryption. Zero third-party exposure.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-violet-400 flex-shrink-0"></i>
                             AES-256 encryption
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
-                            Air-gapped options
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-violet-400 flex-shrink-0"></i>
+                            Air-gapped deployment options
                         </li>
                     </ul>
                 </div>
-                
+
                 <!-- Card 3 -->
-                <div class="glass-card rounded-2xl p-8 hover:transform hover:-translate-y-2 transition-all duration-300 fade-in-section">
-                    <div class="w-14 h-14 bg-sky-900/50 rounded-xl flex items-center justify-center mb-6 glow-border">
-                        <i data-lucide="workflow" class="w-7 h-7 text-sky-400"></i>
+                <div class="solution-card rounded-2xl p-8 fade-in-section group">
+                    <div class="card-icon mb-7 cyan-icon">
+                        <i data-lucide="workflow" class="w-5 h-5"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Workflow Automation</h3>
-                    <p class="text-gray-400 leading-relaxed mb-4">
+                    <h3 class="text-lg font-semibold text-white mb-3">Workflow Automation</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
                         Intelligent process automation that understands context and makes decisions based on your business rules.
                     </p>
-                    <ul class="space-y-2 text-sm text-gray-500">
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
+                    <ul class="space-y-2.5">
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 flex-shrink-0"></i>
                             Custom workflow integration
                         </li>
-                        <li class="flex items-center gap-2">
-                            <i data-lucide="check" class="w-4 h-4 text-green-400"></i>
-                            Audit trails included
+                        <li class="flex items-center gap-2.5 text-sm text-gray-500">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-cyan-400 flex-shrink-0"></i>
+                            Full audit trails
                         </li>
                     </ul>
                 </div>
@@ -265,249 +199,258 @@
     </section>
 
     <!-- Compliance Section -->
-    <section id="compliance" class="py-32 bg-gradient-to-b from-gray-900/50 to-black relative overflow-hidden">
-        <div class="absolute inset-0 grid-pattern opacity-30"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
+    <section id="compliance" class="py-32 relative overflow-hidden compliance-bg">
+        <div class="dot-grid opacity-40 absolute inset-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+
                 <div class="fade-in-section">
-                    <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Compliance-First<br>
-                        <span class="text-green-400">Architecture</span>
+                    <div class="eyebrow mb-4">Compliance</div>
+                    <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-5">
+                        Compliance-first<br>architecture.
                     </h2>
-                    <p class="text-xl text-gray-400 leading-relaxed mb-8">
-                        Built for regulated industries. Every component is designed with HIPAA, SOC 2, GDPR, and CCPA requirements in mind from day one.
+                    <p class="text-gray-400 leading-relaxed mb-10">
+                        Built for regulated industries. Every component is designed with HIPAA, SOC 2, GDPR, and CCPA requirements baked in from day one.
                     </p>
-                    
-                    <div class="grid grid-cols-2 gap-4 mb-8">
-                        <div class="compliance-badge rounded-xl p-4 flex items-center gap-3">
-                            <i data-lucide="shield" class="w-6 h-6 text-green-400"></i>
-                            <span class="text-white font-semibold">SOC 2</span>
+
+                    <div class="grid grid-cols-2 gap-3 mb-10">
+                        <div class="compliance-chip">
+                            <i data-lucide="shield" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="text-white font-medium text-sm">SOC 2</span>
                         </div>
-                        <div class="compliance-badge rounded-xl p-4 flex items-center gap-3">
-                            <i data-lucide="file-check" class="w-6 h-6 text-green-400"></i>
-                            <span class="text-white font-semibold">HIPAA</span>
+                        <div class="compliance-chip">
+                            <i data-lucide="file-check" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="text-white font-medium text-sm">HIPAA</span>
                         </div>
-                        <div class="compliance-badge rounded-xl p-4 flex items-center gap-3">
-                            <i data-lucide="globe" class="w-6 h-6 text-green-400"></i>
-                            <span class="text-white font-semibold">GDPR</span>
+                        <div class="compliance-chip">
+                            <i data-lucide="globe" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="text-white font-medium text-sm">GDPR</span>
                         </div>
-                        <div class="compliance-badge rounded-xl p-4 flex items-center gap-3">
-                            <i data-lucide="lock" class="w-6 h-6 text-green-400"></i>
-                            <span class="text-white font-semibold">CCPA</span>
+                        <div class="compliance-chip">
+                            <i data-lucide="lock" class="w-4 h-4 text-emerald-400"></i>
+                            <span class="text-white font-medium text-sm">CCPA</span>
                         </div>
                     </div>
-                    
-                    <div class="flex items-center gap-4 text-sm text-gray-400">
+
+                    <div class="flex items-center gap-6 text-sm text-gray-500">
                         <div class="flex items-center gap-2">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
                             Third-party audited
                         </div>
                         <div class="flex items-center gap-2">
-                            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>
+                            <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
                             Penetration tested
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="relative fade-in-section">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-sky-500 rounded-3xl blur-2xl opacity-20"></div>
-                    <div class="relative glass-card rounded-3xl p-8 glow-border">
-                        <div class="space-y-6">
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5">
-                                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
+                    <div class="compliance-card-glow"></div>
+                    <div class="feature-panel rounded-2xl p-2 relative">
+                        <div class="space-y-1">
+                            <div class="feature-row rounded-xl p-5">
+                                <div class="feature-icon-wrap emerald">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-emerald-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold mb-1">Data Residency</h4>
-                                    <p class="text-sm text-gray-400">Your data stays in your chosen region. Full control over geographic boundaries.</p>
+                                    <h4 class="text-white font-semibold text-sm mb-0.5">Data Residency</h4>
+                                    <p class="text-xs text-gray-500 leading-relaxed">Your data stays in your chosen region. Full control over geographic boundaries.</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5">
-                                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
+
+                            <div class="feature-row rounded-xl p-5">
+                                <div class="feature-icon-wrap emerald">
+                                    <i data-lucide="trash-2" class="w-4 h-4 text-emerald-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold mb-1">Zero Retention</h4>
-                                    <p class="text-sm text-gray-400">No data persistence in model training. Complete isolation between client environments.</p>
+                                    <h4 class="text-white font-semibold text-sm mb-0.5">Zero Retention</h4>
+                                    <p class="text-xs text-gray-500 leading-relaxed">No data persistence in model training. Complete isolation between client environments.</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5">
-                                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="check" class="w-5 h-5 text-green-400"></i>
+
+                            <div class="feature-row rounded-xl p-5">
+                                <div class="feature-icon-wrap emerald">
+                                    <i data-lucide="users" class="w-4 h-4 text-emerald-400"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-semibold mb-1">Access Controls</h4>
-                                    <p class="text-sm text-gray-400">Role-based permissions with SSO integration and detailed audit logging.</p>
+                                    <h4 class="text-white font-semibold text-sm mb-0.5">Access Controls</h4>
+                                    <p class="text-xs text-gray-500 leading-relaxed">Role-based permissions with SSO integration and detailed audit logging.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
     <section id="process" class="py-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-20 fade-in-section">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Implementation <span class="text-blue-400">Process</span>
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="text-center max-w-2xl mx-auto mb-20 fade-in-section">
+                <div class="eyebrow mb-4">How it works</div>
+                <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight mb-5">
+                    From audit to launch<br>in 90 days.
                 </h2>
-                <p class="text-xl text-gray-400">
-                    From audit to deployment in 90 days. We handle the complexity so you can focus on results.
-                </p>
+                <p class="text-gray-400">We handle the complexity so you can focus on results.</p>
             </div>
-            
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="relative fade-in-section">
-                    <div class="glass-card rounded-2xl p-6 h-full border-t-4 border-t-blue-500">
-                        <div class="text-4xl font-bold text-blue-400 mb-4">01</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Discovery</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Security audit and data mapping. We identify your sensitive data flows and compliance requirements.
-                        </p>
+
+            <div class="max-w-3xl mx-auto">
+                <!-- Step 1 -->
+                <div class="process-step fade-in-section">
+                    <div class="process-line"></div>
+                    <div class="process-num">
+                        <span>01</span>
                     </div>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-700"></div>
+                    <div class="process-content">
+                        <h3 class="text-white font-semibold mb-1.5">Discovery</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Security audit and data mapping. We identify your sensitive data flows and compliance requirements.</p>
+                    </div>
+                    <div class="process-tag">Week 1–2</div>
                 </div>
-                
-                <div class="relative fade-in-section">
-                    <div class="glass-card rounded-2xl p-6 h-full border-t-4 border-t-sky-500">
-                        <div class="text-4xl font-bold text-sky-400 mb-4">02</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Architecture</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Custom AI infrastructure design tailored to your tech stack and security boundaries.
-                        </p>
+
+                <!-- Step 2 -->
+                <div class="process-step fade-in-section">
+                    <div class="process-line"></div>
+                    <div class="process-num violet">
+                        <span>02</span>
                     </div>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-700"></div>
+                    <div class="process-content">
+                        <h3 class="text-white font-semibold mb-1.5">Architecture</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Custom AI infrastructure design tailored to your tech stack and security boundaries.</p>
+                    </div>
+                    <div class="process-tag">Week 3–5</div>
                 </div>
-                
-                <div class="relative fade-in-section">
-                    <div class="glass-card rounded-2xl p-6 h-full border-t-4 border-t-cyan-500">
-                        <div class="text-4xl font-bold text-cyan-400 mb-4">03</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Integration</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Seamless deployment with your existing systems. Full API compatibility and SSO setup.
-                        </p>
+
+                <!-- Step 3 -->
+                <div class="process-step fade-in-section">
+                    <div class="process-line"></div>
+                    <div class="process-num cyan">
+                        <span>03</span>
                     </div>
-                    <div class="hidden md:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gray-700"></div>
+                    <div class="process-content">
+                        <h3 class="text-white font-semibold mb-1.5">Integration</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Seamless deployment with your existing systems. Full API compatibility and SSO setup.</p>
+                    </div>
+                    <div class="process-tag">Week 6–10</div>
                 </div>
-                
-                <div class="fade-in-section">
-                    <div class="glass-card rounded-2xl p-6 h-full border-t-4 border-t-green-500">
-                        <div class="text-4xl font-bold text-green-400 mb-4">04</div>
-                        <h3 class="text-xl font-bold text-white mb-3">Optimization</h3>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            Continuous monitoring and model refinement. 24/7 support and compliance reporting.
-                        </p>
+
+                <!-- Step 4 -->
+                <div class="process-step last fade-in-section">
+                    <div class="process-num emerald">
+                        <span>04</span>
                     </div>
+                    <div class="process-content">
+                        <h3 class="text-white font-semibold mb-1.5">Optimization</h3>
+                        <p class="text-sm text-gray-500 leading-relaxed">Continuous monitoring and model refinement. 24/7 support and compliance reporting.</p>
+                    </div>
+                    <div class="process-tag">Ongoing</div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <!-- CTA Section -->
     <section id="contact" class="py-32 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-t from-indigo-950/30 to-transparent"></div>
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none"></div>
-        
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="glass-card rounded-3xl p-8 md:p-12 text-center fade-in-section">
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
-                    Ready to Transform Your<br>
-                    <span class="gradient-text">Company's Data?</span>
-                </h2>
-                <p class="text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
-                    Join enterprise leaders who trust Integrated AI Systems for their most sensitive AI initiatives. Book a private demo with our solutions team.
+        <div class="spotlight"></div>
+
+        <div class="max-w-3xl mx-auto px-6 lg:px-8 relative z-10 text-center fade-in-section">
+            <div class="eyebrow mb-6">Get started</div>
+            <h2 class="text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight mb-5">
+                Ready to transform<br>
+                <span class="gradient-text-hero">your company's data?</span>
+            </h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">
+                Join enterprise leaders who trust Integrated AI Systems for their most sensitive AI initiatives. Book a private demo.
+            </p>
+
+            <form class="max-w-md mx-auto mb-8 fade-in-section" onsubmit="event.preventDefault(); handleFormSubmit(this);">
+                <div class="cta-input-wrap flex gap-2 p-1.5 rounded-full mb-3">
+                    <input type="email" placeholder="your@company.com" class="cta-input flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder-gray-600 focus:outline-none" required>
+                    <button type="submit" class="btn-primary px-6 py-3 text-sm font-semibold text-white rounded-full whitespace-nowrap">
+                        Get in Touch
+                    </button>
+                </div>
+                <p class="text-xs text-gray-600">
+                    By submitting, you agree to our privacy policy. No spam, ever.
                 </p>
-                
-                <form class="max-w-lg mx-auto space-y-4 mb-8" onsubmit="event.preventDefault(); alert('Thank you for your interest. Our team will contact you shortly.');">
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="email" placeholder="Enter your work email" class="flex-1 px-6 py-4 bg-black/30 border border-gray-700 rounded-full text-white placeholder-gray-500 focus:border-indigo-500 transition-colors" required>
-                        <button type="submit" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all hover:shadow-lg hover:shadow-blue-500/30 whitespace-nowrap">
-                            Get in Touch
-                        </button>
-                    </div>
-                    <p class="text-xs text-gray-500">
-                        By submitting, you agree to our privacy policy and terms of service.
-                    </p>
-                </form>
-                
-                <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="shield-check" class="w-5 h-5 text-green-400"></i>
-                        <span>NDA Protected</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="clock" class="w-5 h-5 text-indigo-400"></i>
-                        <span>24hr Response Time</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i data-lucide="users" class="w-5 h-5 text-purple-400"></i>
-                        <span>Dedicated Solutions Team</span>
-                    </div>
+            </form>
+
+            <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 fade-in-section">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-500"></i>
+                    <span>NDA Protected</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4 text-indigo-500"></i>
+                    <span>24hr Response</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i data-lucide="users" class="w-4 h-4 text-violet-500"></i>
+                    <span>Dedicated Solutions Team</span>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-black border-t border-gray-800 pt-20 pb-10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-12 mb-16">
+    <footer class="border-t border-white/[0.06] pt-16 pb-10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <div class="col-span-2">
-                    <div class="flex items-center space-x-2 mb-6">
-                        <i data-lucide="shield-check" class="w-8 h-8 text-blue-400"></i>
-                        <span class="text-2xl font-bold text-white">Integrated AI Systems</span>
+                    <div class="flex items-center gap-2.5 mb-5">
+                        <div class="w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-violet-600 flex items-center justify-center">
+                            <i data-lucide="shield-check" style="width:14px;height:14px;" class="text-white"></i>
+                        </div>
+                        <span class="text-base font-semibold text-white tracking-tight">Integrated AI Systems</span>
                     </div>
-                    <p class="text-gray-400 leading-relaxed max-w-md mb-6">
-                        Secure AI integration for the modern enterprise. We help medium to large businesses leverage artificial intelligence without compromising on security or compliance.
+                    <p class="text-sm text-gray-500 leading-relaxed max-w-xs mb-6">
+                        Secure AI integration for the modern enterprise. No compromises on security or compliance.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                            <i data-lucide="linkedin" class="w-5 h-5 text-white"></i>
+                    <div class="flex gap-3">
+                        <a href="#" class="social-icon">
+                            <i data-lucide="linkedin" class="w-4 h-4 text-gray-400"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                            <i data-lucide="twitter" class="w-5 h-5 text-white"></i>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="twitter" class="w-4 h-4 text-gray-400"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-indigo-600 transition-colors">
-                            <i data-lucide="github" class="w-5 h-5 text-white"></i>
+                        <a href="#" class="social-icon">
+                            <i data-lucide="github" class="w-4 h-4 text-gray-400"></i>
                         </a>
                     </div>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Solutions</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">Knowledge Base</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Document Processing</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Workflow Automation</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Custom Models</a></li>
+                    <h4 class="text-white text-sm font-medium mb-4">Solutions</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Knowledge Base</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Document Processing</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Workflow Automation</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Custom Models</a></li>
                     </ul>
                 </div>
-                
+
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Company</h4>
-                    <ul class="space-y-3 text-gray-400">
-                        <li><a href="#" class="hover:text-white transition-colors">About Us</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
-                        <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                    <h4 class="text-white text-sm font-medium mb-4">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">About</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Security</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-sm text-gray-500 hover:text-gray-300 transition-colors">Contact</a></li>
                     </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">
-                    © 2024 Integrated AI Systems. All rights reserved.
-                </p>
-                <div class="flex gap-6 text-sm text-gray-500">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                    <a href="#" class="hover:text-white transition-colors">Security</a>
+
+            <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-xs text-gray-600">© 2025 Integrated AI Systems. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Terms of Service</a>
+                    <a href="#" class="text-xs text-gray-600 hover:text-gray-400 transition-colors">Security</a>
                 </div>
             </div>
         </div>
